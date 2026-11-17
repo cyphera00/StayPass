@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#081525"/><meta name="description" content="StayPass: 학생 외박 신청 및 교사 승인 시연용 웹사이트"/>
+<title>StayPass — 외박 신청 통합 관리 · DEMO</title><style>
+:root{--bg:#081525;--panel:#101f32;--panel2:#15273d;--border:#243750;--text:#f1f6fd;--muted:#9cacc1;--cyan:#54d1ef;--primary:#3f9cf4;--good:#5cd5b0;--warn:#efb76d;--bad:#f38e98;--radius:16px;--shadow:0 20px 70px rgba(1,9,20,.24)}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Pretendard,'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--text);background:radial-gradient(800px 420px at 83% -10%,#19355a 0,transparent 65%),var(--bg)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.4}a{color:var(--cyan)}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{position:sticky;top:0;height:100vh;border-right:1px solid var(--border);background:#0a192a;padding:29px 19px;display:flex;flex-direction:column;gap:22px}.brand{display:flex;align-items:center;gap:11px;padding:4px 11px}.brand-mark{width:42px;height:42px;background:linear-gradient(135deg,#3dc4e8,#4788ee);display:grid;place-items:center;border-radius:13px;font-size:23px;color:#08213a;box-shadow:0 8px 30px #348fd441}.brand-title{font-size:23px;letter-spacing:-1px;font-weight:800}.brand-sub{font-size:11px;color:var(--muted);margin-top:2px}.nav-title{margin:9px 10px 7px;font-size:10px;font-weight:800;letter-spacing:2px;color:#6f849d}.nav{display:flex;flex-direction:column;gap:7px}.nav button{width:100%;display:flex;align-items:center;gap:13px;border:1px solid transparent;border-radius:11px;background:none;color:#9fb0c5;text-align:left;padding:13px 14px;font-weight:600}.nav button.active,.nav button:hover{color:var(--text);background:#19324e;border-color:#2e5274}.nav-symbol{width:22px;text-align:center;font-size:18px}.side-foot{margin-top:auto;border-top:1px solid var(--border);padding:22px 9px 0;color:var(--muted);font-size:12px;line-height:1.7}.side-foot strong{display:block;color:#d5e8f7;font-size:12px;margin-bottom:5px}.side-foot .mini-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--good);margin-right:6px}.main{padding:30px clamp(18px,5vw,70px) 70px;max-width:1300px;width:100%;margin:0 auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:35px}.eyebrow{font-size:11px;color:var(--cyan);font-weight:800;letter-spacing:2.5px}.topright{display:flex;align-items:center;gap:12px}.pill{border:1px solid #315d6b;border-radius:50px;padding:7px 11px;font-size:11px;background:#103446;color:#89e7ee;font-weight:700;white-space:nowrap}.ghost{border:1px solid var(--border);border-radius:10px;background:#172b41;color:#deeafa;padding:10px 12px;font-weight:650}.ghost:hover{border-color:#6298c2}.title{font-size:clamp(26px,3.3vw,40px);line-height:1.27;font-weight:800;letter-spacing:-1.7px;margin:0}.subtitle{font-size:14px;color:var(--muted);line-height:1.8;margin:10px 0 28px}.row{display:flex;align-items:center;gap:12px}.between{justify-content:space-between}.panel{background:linear-gradient(160deg,#13253a,#101f31);border:1px solid var(--border);border-radius:var(--radius);padding:25px;box-shadow:var(--shadow)}.section-heading{font-size:18px;font-weight:800;margin:0 0 4px}.section-desc{font-size:12px;color:var(--muted);margin:0 0 25px;line-height:1.7}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:21px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.field{margin-bottom:18px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:9px}.field input,.field select,.field textarea{width:100%;border:1px solid #34506c;color:#e6f1fd;background:#0c1b2d;border-radius:10px;padding:13px 13px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:#52b6f9;box-shadow:0 0 0 3px #268ce521}.field textarea{min-height:112px;resize:vertical}.field small{display:block;margin-top:8px;font-size:11px;color:var(--muted)}.primary{border:1px solid #65cef8;border-radius:10px;background:linear-gradient(100deg,#55caeb,#398eeb);color:#08213a;padding:14px 19px;font-weight:850}.primary:hover{filter:brightness(1.06)}.secondary{border:1px solid #32648c;border-radius:10px;background:#17324c;color:#c9eafd;padding:11px 14px;font-weight:700}.danger{border:1px solid #7a394b;background:#382433;color:#ffb6be;border-radius:10px;padding:10px 12px;font-weight:700}.primary.wide{width:100%}.notice{border:1px solid #30516b;background:#102940;border-radius:12px;padding:15px 17px;color:#bcd3e7;font-size:12px;line-height:1.8}.notice strong{color:#e1f2ff}.notice.warning{border-color:#6d5634;background:#2c261d;color:#ebcfa3}.notice.warning strong{color:#f1d6ae}.stat{border:1px solid var(--border);background:#13263a;border-radius:13px;padding:19px}.stat-value{font-size:28px;font-weight:800;margin:7px 0;color:#effaff}.stat-label{color:#a6b8cd;font-size:12px}.cards{display:flex;flex-direction:column;gap:14px}.req{border:1px solid var(--border);border-radius:14px;background:#102236;padding:20px}.req-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}.req-title{font-size:16px;font-weight:800}.req-meta{color:var(--muted);font-size:12px;margin-top:7px;line-height:1.6}.status{border-radius:30px;padding:7px 10px;font-size:11px;display:inline-block;font-weight:800;white-space:nowrap}.status.waiting_parent{background:#483525;color:#f8c87e}.status.waiting_teacher{background:#193c60;color:#8bccff}.status.approved{background:#133b37;color:#74e4c3}.status.rejected{background:#432831;color:#ffa3af}.status.cancelled{background:#2a3443;color:#acbacb}.req-body{margin:15px 0;color:#d2deed;font-size:13px;line-height:1.8}.req-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.divider{border:0;border-top:1px solid var(--border);margin:20px 0}.copy-box{border:1px dashed #326780;background:#0d1b2d;border-radius:12px;padding:18px;line-height:1.9;white-space:pre-line;color:#d3e5f8;font-size:13px}.tiny{font-size:11px;color:var(--muted);line-height:1.7}.empty{text-align:center;padding:65px 15px;border:1px dashed #2d4660;border-radius:15px;background:#101f2f;color:#a8bad0}.empty b{display:block;color:#e0effe;font-size:17px;margin:12px 0}.timeline{display:flex;flex-direction:column;gap:11px;margin-top:14px}.log{border-left:2px solid #366389;padding-left:14px;color:#b7cbdf;font-size:12px}.log small{display:block;color:#748aa3;margin-top:4px}.toggle{display:flex;gap:8px;align-items:start;background:#253040;border:1px solid #405269;padding:12px;border-radius:10px;font-size:12px;line-height:1.6;color:#dfebf7}.toggle input{accent-color:#5ac7ef;width:17px;height:17px;flex:0 0 auto}.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}.hero-aside{background:linear-gradient(155deg,#183b56,#153348);border:1px solid #306280;border-radius:var(--radius);padding:25px;display:flex;flex-direction:column;justify-content:space-between}.hero-aside .big{font-size:30px;line-height:1.3;font-weight:850;letter-spacing:-1px;margin-top:14px}.hero-aside .quiet{font-size:12px;color:#a4d4e7;line-height:1.8;margin-top:20px}.section-space{margin-top:25px}.toast{position:fixed;right:24px;bottom:22px;max-width:min(440px,90vw);z-index:10;background:#103c4c;color:#dbfeff;border:1px solid #4fd0e7;border-radius:11px;padding:16px 20px;box-shadow:0 14px 50px #0008;font-size:13px;line-height:1.6}.toast.error{background:#4a2631;border-color:#ca7181;color:#ffe1e7}.hidden{display:none!important}.filters{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:16px}.filters select{padding:9px;border:1px solid #34506c;border-radius:9px;background:#102134;color:#e8f6fe}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;text-align:left;font-size:12px}th{color:#a3b6ca;font-size:11px;font-weight:750}td,th{padding:12px 10px;border-bottom:1px solid var(--border)}td{color:#dbe6f2}details{margin-top:16px}summary{cursor:pointer;font-size:12px;font-weight:700;color:#a7daff;padding:8px 0}.steps{counter-reset:step;display:flex;flex-direction:column;gap:12px}.step{display:flex;gap:12px;color:#c4d5e7;line-height:1.8;font-size:13px}.step-number{background:#193f5f;color:#7ddeff;border-radius:9px;display:grid;place-items:center;min-width:34px;height:34px;font-weight:800}.footer-notice{color:#879cb4;font-size:11px;line-height:1.8;margin-top:35px}.toolbar-mobile{display:none}@media(max-width:970px){.hero{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.main{padding:23px 24px 60px}.side{width:210px}.app{grid-template-columns:210px 1fr}}@media(max-width:690px){.topright{flex-wrap:wrap;justify-content:flex-end}.app{display:block}.side{position:static;width:100%;height:auto;padding:15px 13px;display:block}.brand{padding:3px 8px}.nav-title,.side-foot{display:none}.nav{display:flex;flex-direction:row;overflow-x:auto;gap:6px;margin-top:14px;padding-bottom:2px}.nav button{width:auto;white-space:nowrap;font-size:11px;padding:10px;flex:0 0 auto}.nav-symbol{font-size:14px;width:auto}.main{padding:19px 15px 45px}.topbar{margin-bottom:26px}.grid3{grid-template-columns:1fr 1fr}.panel{padding:19px}.topright{gap:6px}.ghost{padding:9px;font-size:11px}.pill{font-size:10px}.req{padding:16px}}@media(prefers-reduced-motion:no-preference){button,.req{transition:.16s ease}button:hover:not(:disabled){transform:translateY(-1px)}}
+/* 2026-11-17 update: teacher approval steps */
+.approval-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.approval-steps>div{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#122a40;border:1px solid #31516b;border-radius:12px;padding:14px 18px}
+.approval-num{font-size:12px;font-weight:900;color:#7fdef7}
+.approval-steps strong{font-size:13px}
+.approval-steps small{flex-basis:100%;font-size:11px;color:#a9bfd3;line-height:1.5}
+@media(max-width:690px){.approval-steps{grid-template-columns:1fr}}
+/* 2026-11-17 update: 일정 수정 · 교사용 검색 · 외박 달력 */
+.filters input[type=search]{padding:9px 11px;border:1px solid #34506c;border-radius:9px;background:#102134;color:#e8f6fe;min-width:190px}
+.edit-form{margin-top:16px;border-top:1px solid var(--border);padding-top:16px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.cal-title{font-size:20px;font-weight:800}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-week{font-size:11px;color:var(--muted);text-align:center;font-weight:700;padding:4px 0}
+.cal-day{min-height:78px;border:1px solid var(--border);border-radius:10px;background:#102236;color:var(--text);padding:8px;text-align:left;display:flex;flex-direction:column;gap:5px;align-items:flex-start}
+.cal-day.today{border-color:#54d1ef}
+.cal-day.selected{background:#19324e;border-color:#6298c2}
+.cal-num{font-size:13px;font-weight:700}
+.cal-badge{font-size:11px;font-weight:800;border-radius:20px;padding:3px 8px;white-space:nowrap}
+.cal-badge.ok{background:#133b37;color:#74e4c3}
+.cal-badge.wait{background:#483525;color:#f8c87e}
+.cal-legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:14px;font-size:11px;color:var(--muted)}
+@media(max-width:690px){.cal-day{min-height:60px;padding:5px;gap:3px}.cal-word{display:none}.cal-badge{padding:2px 6px}.cal-grid{gap:4px}}
+
+</style></head>
+<body><div class="app"><aside class="side"><div class="brand"><div class="brand-mark">⌂</div><div><div class="brand-title">StayPass</div><div class="brand-sub">DORM LEAVE MANAGEMENT</div></div></div><p class="nav-title">WORKSPACE</p><nav class="nav" id="nav" aria-label="주 메뉴"></nav><div class="side-foot"><strong><span class="mini-dot"></span> 시연용 로컬 웹사이트</strong>데이터는 현재 브라우저에 저장됩니다.<br/>백업 파일로 내보내거나 다른 브라우저에서 복원할 수 있습니다.</div></aside>
+<main class="main"><header class="topbar"><div class="eyebrow">2026 전곽 SW 경진대회 · DEMO</div><div class="topright"><span class="pill">● DEMO MODE</span><button class="ghost" type="button" id="backup-export">↓ 백업</button><button class="ghost" type="button" id="backup-import">↑ 복원</button><input type="file" id="backup-file" accept=".json,application/json" class="hidden"/><button class="ghost" type="button" id="reset">↻ 초기화</button></div></header><div id="screen" aria-live="polite"></div><div class="footer-notice">StayPass는 대회 시연을 위한 프로토타입입니다. 실제 문자 발송·수신, 학교 계정 인증, 학교 시스템 연동은 지원하지 않습니다. 이 화면에서 교사 역할 전환은 데모 시연을 위한 기능이며 실제 권한 인증이 아닙니다.</div></main></div><div id="toast" role="status" aria-live="assertive" class="toast hidden"></div>
+<script>
+/* StayPass local demonstration core. No backend or real student/teacher authentication.
+   Only fictitious data should be entered. */
+(function (root, factory) {
+  const logic = factory();
+  if (typeof module === 'object' && module.exports) module.exports = logic;
+  root.StayPassLogic = logic;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  const STATUS = Object.freeze({
+    waiting_parent: '보호자 문자 확인 대기',
+    waiting_teacher: '교사 최종 승인 대기',
+    approved: '승인 완료',
+    rejected: '반려',
+    cancelled: '신청 취소'
+  });
+  const ACTIVE = ['waiting_parent', 'waiting_teacher', 'approved'];
+  function validateStudent(studentNumber, studentName) {
+    const no=String(studentNumber ?? '').trim();
+    const name=String(studentName ?? '').trim();
+    if (!/^\d{3,12}$/.test(no)) throw Error('학번은 숫자 3~12자리로 입력해 주세요.');
+    if (!name || name.length>30) throw Error('학생 이름을 1~30자로 입력해 주세요.');
+    if (/[<>\r\n]/.test(name)) throw Error('학생 이름에 사용할 수 없는 문자가 있습니다.');
+    return { studentNumber:no, studentName:name };
+  }
+  function parseDateTime(v) {
+    if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(v)) throw Error('날짜와 시간을 확인해 주세요.');
+    const [year, month, day, hour, min] = v.match(/\d+/g).map(Number);
+    const d = new Date(year, month - 1, day, hour, min, 0, 0);
+    if (d.getFullYear() !== year || d.getMonth() !== month - 1 || d.getDate() !== day || d.getHours() !== hour || d.getMinutes() !== min) throw Error('존재하지 않는 날짜 또는 시간입니다.');
+    return d;
+  }
+  function validateLeave(start, end, reason) {
+    const s = parseDateTime(start), e = parseDateTime(end);
+    if (e <= s) throw Error('귀사 예정 시각은 외박 시작 시각보다 늦어야 합니다.');
+    if (typeof reason !== 'string' || !reason.trim()) throw Error('외박 사유를 입력해 주세요.');
+    if (reason.trim().length > 200) throw Error('외박 사유는 200자 이하로 작성해 주세요.');
+    return true;
+  }
+  function overlaps(a, b, c, d) { return parseDateTime(a) < parseDateTime(d) && parseDateTime(b) > parseDateTime(c); }
+  function formatDate(v) { const d = parseDateTime(v); return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`; }
+  function shortDate(v) { const d = parseDateTime(v); return `${d.getMonth()+1}월 ${d.getDate()}일 ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`; }
+  function guardianMessage(student, item) {
+    if (!student) throw Error('학생 정보가 없습니다.');
+    const info=validateStudent(student.studentNumber,student.studentName);
+    validateLeave(item.start, item.end, item.reason || '외박 일정 안내');
+    return `안녕하세요. ${info.studentNumber} ${info.studentName} 학생의 보호자입니다.\n외박 일정은 ${shortDate(item.start)}부터 ${shortDate(item.end)}까지입니다.\n해당 일정으로 외박하는 것에 동의합니다. 감사합니다.`;
+  }
+  function makeBlankState() { return { version:2, nextId:1, students:{}, requests:[], logs:[] }; }
+  function addLog(state, id, actor, action, detail, at) { state.logs.push({ requestId:id, actor, action, detail:detail||'', at:at||new Date().toISOString() }); }
+  function createRequest(state, studentNumber, studentName, start, end, reason) {
+    const info=validateStudent(studentNumber,studentName);
+    validateLeave(start,end,reason);
+    const existing=state.students[info.studentNumber];
+    if (existing && existing.studentName!==info.studentName) throw Error('이 학번으로 등록된 이름과 다릅니다. 기존 이름을 확인해 주세요.');
+    if (state.requests.some(r => r.studentNumber===info.studentNumber && ACTIVE.includes(r.status) && overlaps(r.start,r.end,start,end))) throw Error('이미 겹치는 외박 신청이 있습니다.');
+    const at=new Date().toISOString(), id=state.nextId++;
+    state.students[info.studentNumber]=info;
+    state.requests.unshift({id,...info,start,end,reason:reason.trim(),status:'waiting_parent',parentVerifiedAt:null,parentVerifiedBy:null,decidedAt:null,teacherNote:'',createdAt:at,updatedAt:at});
+    addLog(state,id,info.studentNumber,'신청서 등록','',at);
+    return id;
+  }
+  function getRequest(state, id) { const r=state.requests.find(x=>x.id===Number(id)); if(!r) throw Error('신청 내역을 찾을 수 없습니다.'); return r; }
+  function verifyParentSms(state, id, actor, actuallyReceived) {
+    if(actor!=='teacher') throw Error('교사에게만 문자 확인 권한이 있습니다.');
+    if(actuallyReceived!==true) throw Error('보호자 문자를 확인한 뒤 체크해 주세요.');
+    const r=getRequest(state,id);
+    if(r.status!=='waiting_parent') throw Error('보호자 문자 확인 대기 상태에서만 처리할 수 있습니다.');
+    const at=new Date().toISOString();r.parentVerifiedAt=at;r.parentVerifiedBy=actor;r.status='waiting_teacher';r.updatedAt=at;
+    addLog(state,r.id,actor,'보호자 문자 수신 확인','문자 수신 및 신청 일정 대조',at);
+  }
+  function decide(state,id,actor,decision,note='') {
+    if(actor!=='teacher') throw Error('교사만 승인·반려할 수 있습니다.');
+    const r=getRequest(state,id);
+    if(!['approved','rejected'].includes(decision)) throw Error('처리 결과가 올바르지 않습니다.');
+    if(decision==='approved'&&(r.status!=='waiting_teacher'||!r.parentVerifiedAt)) throw Error('보호자 문자 확인이 완료된 신청만 승인할 수 있습니다.');
+    if(decision==='rejected'&&!['waiting_parent','waiting_teacher'].includes(r.status)) throw Error('처리할 수 없는 신청 상태입니다.');
+    if(String(note).length>200) throw Error('반려 사유는 200자 이하여야 합니다.');
+    const at=new Date().toISOString();r.status=decision;r.teacherNote=String(note).trim();r.decidedAt=at;r.updatedAt=at;
+    addLog(state,r.id,actor,decision==='approved'?'최종 승인':'반려',r.teacherNote,at);
+  }
+  function cancel(state,id,studentNumber) {
+    const r=getRequest(state,id);
+    if(r.studentNumber!==String(studentNumber)) throw Error('본인의 신청만 취소할 수 있습니다.');
+    if(!['waiting_parent','waiting_teacher'].includes(r.status)) throw Error('대기 중인 신청만 취소할 수 있습니다.');
+    r.status='cancelled';r.updatedAt=new Date().toISOString();addLog(state,r.id,studentNumber,'신청 취소','',r.updatedAt);
+  }
+  function demoDates(now=new Date()) {
+    const friday=new Date(now);friday.setDate(friday.getDate()+((5-friday.getDay()+7)%7));friday.setHours(18,0,0,0);
+    const sunday=new Date(friday);sunday.setDate(sunday.getDate()+2);sunday.setHours(19,10,0,0);
+    const asInput=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}T${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    return [asInput(friday),asInput(sunday)];
+  }
+  /* ① 외박 일정 수정: 대기 중인 본인 신청만 고칠 수 있다.
+     일정(시작·종료)이 바뀌면 이미 받은 보호자 문자 확인을 지우고 처음 단계로 되돌린다. */
+  function updateRequest(state, id, studentNumber, start, end, reason) {
+    const r = getRequest(state, id);
+    if (r.studentNumber !== String(studentNumber)) throw Error('본인의 신청만 수정할 수 있습니다.');
+    if (!['waiting_parent', 'waiting_teacher'].includes(r.status)) throw Error('대기 중인 신청만 수정할 수 있습니다.');
+    validateLeave(start, end, reason);
+    const clash = state.requests.some(x => x.id !== r.id && x.studentNumber === r.studentNumber && ACTIVE.includes(x.status) && overlaps(x.start, x.end, start, end));
+    if (clash) throw Error('이미 겹치는 외박 신청이 있습니다.');
+    const scheduleChanged = r.start !== start || r.end !== end;
+    const reasonChanged = r.reason !== reason.trim();
+    if (!scheduleChanged && !reasonChanged) throw Error('변경된 내용이 없습니다.');
+    const at = new Date().toISOString();
+    let detail = scheduleChanged ? `이전 일정: ${formatDate(r.start)} ~ ${formatDate(r.end)}` : '사유만 변경';
+    let verificationReset = false;
+    r.start = start; r.end = end; r.reason = reason.trim(); r.updatedAt = at;
+    if (scheduleChanged && r.parentVerifiedAt) {
+      r.parentVerifiedAt = null; r.parentVerifiedBy = null; r.status = 'waiting_parent';
+      verificationReset = true;
+      detail += ' · 보호자 문자 확인 초기화';
+    }
+    addLog(state, r.id, r.studentNumber, scheduleChanged ? '일정 수정' : '사유 수정', detail, at);
+    return { scheduleChanged, verificationReset };
+  }
+  /* ② 교사용 검색: 학번 또는 이름에 검색어가 들어 있는 신청만 남긴다. */
+  function searchRequests(requests, query) {
+    const q = String(query ?? '').trim().toLowerCase();
+    if (!q) return requests.slice();
+    return requests.filter(r => String(r.studentNumber).includes(q) || String(r.studentName).toLowerCase().includes(q));
+  }
+  /* ③ 외박 달력: 그 날짜(00:00~24:00)와 겹치는 활성 신청을 찾는다. dateText는 'YYYY-MM-DD'. */
+  function requestsOnDate(state, dateText) {
+    const dayStart = parseDateTime(dateText + 'T00:00');
+    const dayEnd = new Date(dayStart); dayEnd.setDate(dayEnd.getDate() + 1);
+    return state.requests.filter(r => ACTIVE.includes(r.status) && parseDateTime(r.start) < dayEnd && parseDateTime(r.end) > dayStart);
+  }
+  /* 그 날짜에 외박하는 학생 수. 승인된 학생과 아직 대기 중인 학생을 따로 센다. */
+  function dayCount(state, dateText) {
+    const list = requestsOnDate(state, dateText);
+    const people = statuses => new Set(list.filter(r => statuses.includes(r.status)).map(r => r.studentNumber)).size;
+    return { approved: people(['approved']), pending: people(['waiting_parent', 'waiting_teacher']) };
+  }
+  return {updateRequest,searchRequests,requestsOnDate,dayCount,STATUS,ACTIVE,validateStudent,parseDateTime,formatDate,shortDate,guardianMessage,validateLeave,overlaps,makeBlankState,createRequest,getRequest,verifyParentSms,decide,cancel,demoDates};
+});
+
+</script><script>
+/* StayPass frontend — static GitHub Pages compatible demonstration UI.
+   Prototype only: all roles and data are in one local browser; no authentication. */
+(() => {
+ 'use strict';
+ const L=window.StayPassLogic;
+ const KEY='staypass-demo-v2';
+ const MENU=[{id:'apply',icon:'✎',name:'외박 신청'},{id:'history',icon:'▤',name:'내 신청 내역'},{id:'teacher',icon:'✓',name:'교사 승인 대시보드'},{id:'calendar',icon:'▦',name:'교사용 외박 달력'},{id:'help',icon:'?',name:'사용 방법'}];
+ const screen=document.getElementById('screen');
+ const nav=document.getElementById('nav');
+ let current='apply', selectedStudentNumber='', filter='all', toastTimer;
+ let editingId=null;            // ① 지금 수정 중인 신청 번호 (없으면 null)
+ let search='';                 // ② 교사 화면 검색어
+ const today=new Date();
+ let calYear=today.getFullYear(), calMonth=today.getMonth(), calDay=null; // ③ 달력에 보이는 연·월(0~11)과 선택한 날짜
+ function h(text) { return String(text??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+ function safeRead(){try {const raw=JSON.parse(localStorage.getItem(KEY)); if(raw&&raw.version===2&&raw.students&&typeof raw.students==='object'&&Array.isArray(raw.requests)&&Array.isArray(raw.logs)&&Number.isSafeInteger(raw.nextId)) return raw;}catch(e){} return L.makeBlankState();}
+ let db=safeRead();
+ selectedStudentNumber=Object.keys(db.students)[0]||'';
+ function save(){try {localStorage.setItem(KEY,JSON.stringify(db));return true;}catch(e){notify("브라우저 저장이 차단되어 새로고침 시 시연 내역이 사라질 수 있습니다.",true);return false;}}
+ function notify(msg,error=false){const e=document.getElementById('toast');e.textContent=msg;e.classList.toggle('error',error);e.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>e.classList.add('hidden'),4500);}
+ function protect(fn){try{fn();save();render();}catch(e){notify(e.message||'작업 중 오류가 발생했습니다.',true);}}
+ function currentStudent(){return db.students[selectedStudentNumber]||null;}
+ function textCopy(s){if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(s).then(()=>notify('문자 문구가 복사되었습니다. 부모님께 전달해 주세요.')).catch(()=>legacyCopy(s));}else{legacyCopy(s);}}
+ function legacyCopy(s){const e=document.createElement('textarea');e.value=s;e.style.position='fixed';e.style.top='-9999px';document.body.append(e);e.select();let ok=false;try{ok=document.execCommand('copy');}catch(err){}e.remove();if(ok)notify('문자 문구가 복사되었습니다.');else notify('복사가 제한된 환경입니다. 문구를 직접 선택해 복사해 주세요.',true);}
+ function intro(kicker,title,sub){return `<div class="eyebrow">${h(kicker)}</div><h1 class="title">${h(title)}</h1><p class="subtitle">${h(sub)}</p>`;}
+ function label(r){return `<span class="status ${h(r.status)}">${h(L.STATUS[r.status]||r.status)}</span>`;}
+ function reqHtml(r){const st={name:r.studentName||'이름 미입력',number:r.studentNumber||'학번 미입력'};return `<div class="req-head"><div><div class="req-title">신청 #${r.id} · ${h(st.name)}</div><div class="req-meta">학번 ${h(st.number)} · ${h(L.formatDate(r.start))} ~ ${h(L.formatDate(r.end))}</div></div>${label(r)}</div><p class="req-body">외박 사유: ${h(r.reason)}</p>`;}
+ function formatLog(rid){const rows=db.logs.filter(l=>l.requestId===rid).slice().reverse();return `<div class="timeline">${rows.length?rows.map(row=>`<div class="log">${h(row.action)}${row.detail?' · '+h(row.detail):''}<small>${h(new Date(row.at).toLocaleString('ko-KR'))} · ${h(row.actor==='teacher'?'데모 교사':(db.students[row.actor]?.studentName||'학생'))}</small></div>`).join(''):'<span class="tiny">기록 없음</span>'}</div>`;}
+ function renderNav(){nav.innerHTML=MENU.map(item=>`<button type="button" data-page="${item.id}" class="${item.id===current?'active':''}" ${item.id===current?'aria-current="page"':''}><span class="nav-symbol" aria-hidden="true">${item.icon}</span>${item.name}</button>`).join('');}
+ function renderApply(){
+   const [start,end]=L.demoDates();
+   const selected=currentStudent();
+   const requests=db.requests.filter(r=>r.studentNumber===selectedStudentNumber);
+   screen.innerHTML=intro('01 / STUDENT','외박 신청을 더 간편하게','학번과 이름, 외박 일정을 입력하면 신청서와 보호자 문자 초안을 함께 만들 수 있어요.')+`<div class="hero"><section class="panel"><h2 class="section-heading">새 외박 신청서</h2><p class="section-desc">신청할 학생의 학번과 이름을 직접 입력해 주세요.</p><form id="application"><div class="grid2"><div class="field"><label for="student-number">신청 학생 · 학번</label><input id="student-number" name="student-number" type="text" inputmode="numeric" maxlength="12" pattern="[0-9]{3,12}" required placeholder="예: 1203" value="${h(selected?.studentNumber||'')}" autocomplete="off"/></div><div class="field"><label for="student-name">신청 학생 · 이름</label><input id="student-name" name="student-name" type="text" maxlength="30" required placeholder="예: 홍길동" value="${h(selected?.studentName||'')}" autocomplete="off"/></div></div><div class="grid2"><div class="field"><label for="start">외박 시작 날짜·시간</label><input id="start" type="datetime-local" step="60" required value="${h(start)}"/></div><div class="field"><label for="end">귀사 예정 날짜·시간</label><input id="end" type="datetime-local" step="60" required value="${h(end)}"/></div></div><div class="field"><label for="reason">외박 사유 <span class="tiny">(최대 200자)</span></label><textarea id="reason" maxlength="200" required placeholder="예: 가족 일정"></textarea></div><div class="notice"><strong>보호자 확인 안내</strong><br/>신청 저장 후 생성된 문자 문구를 보호자에게 전달하세요. 보호자는 본인의 휴대전화로 담임교사에게 직접 문자를 보내야 합니다.</div><div style="margin-top:21px"><button class="primary wide" type="submit">외박 신청 저장하기 →</button></div></form></section><aside class="hero-aside"><div><div class="eyebrow">STUDENT EXPERIENCE</div><div class="big">한 번 입력하고,<br/>확인 상태까지 한눈에.</div><p class="quiet">신청한 정보가 보호자 문자 초안과 승인 내역에 자동 반영됩니다.</p></div><div class="notice" style="margin-top:22px"><strong id="student-preview">${selected?h(selected.studentNumber+' '+selected.studentName):'학번과 이름을 입력해 주세요'}</strong><br/><span id="student-request-count">현재 신청: ${requests.length}건</span></div></aside></div>`;
+ }
+
+ function editFormHtml(r){
+   return `<form class="edit-form" data-edit-form="${r.id}">
+     <div class="grid2">
+       <div class="field"><label for="edit-start">외박 시작 날짜·시간</label><input id="edit-start" type="datetime-local" step="60" required value="${h(r.start)}"/></div>
+       <div class="field"><label for="edit-end">귀사 예정 날짜·시간</label><input id="edit-end" type="datetime-local" step="60" required value="${h(r.end)}"/></div>
+     </div>
+     <div class="field"><label for="edit-reason">외박 사유 <span class="tiny">(최대 200자)</span></label><textarea id="edit-reason" maxlength="200" required>${h(r.reason)}</textarea></div>
+     <div class="notice warning"><strong>일정을 바꾸면 보호자 문자 확인이 초기화됩니다.</strong><br/>바뀐 일정으로 보호자가 담임교사에게 문자를 다시 보내야 하고, 교사도 다시 확인해야 합니다.</div>
+     <div class="req-actions" style="margin-top:12px"><button class="primary" type="submit">수정 내용 저장</button><button class="secondary" type="button" data-edit-cancel="1">수정 취소</button></div>
+   </form>`;
+ }
+ function renderHistory(){
+   const mine=db.requests.filter(r=>r.studentNumber===selectedStudentNumber);
+   const students=Object.values(db.students);
+   screen.innerHTML=intro('02 / MY REQUESTS','내 외박 신청 내역','입력한 학번·이름으로 신청 내역과 승인 상태를 확인할 수 있어요.')+`<div class="panel"><div class="row between" style="flex-wrap:wrap;margin-bottom:20px"><div><h2 class="section-heading">신청 현황</h2><p class="section-desc" style="margin-bottom:0">신청한 학번과 이름이 그대로 표시됩니다.</p></div><div class="filters">${students.length?`<select id="history-student" aria-label="조회할 학생">${students.map(st=>`<option value="${h(st.studentNumber)}" ${selectedStudentNumber===st.studentNumber?'selected':''}>${h(st.studentNumber)} ${h(st.studentName)}</option>`).join('')}</select>`:''}<button class="secondary" data-go="apply">+ 새 신청</button></div></div><div class="cards">${mine.length?mine.map(r=>`<article class="req">${reqHtml(r)}${r.teacherNote?`<p class="notice warning">교사 메모: ${h(r.teacherNote)}</p>`:''}<div class="req-actions">${L.ACTIVE.includes(r.status)?`<button class="secondary" data-copy="${r.id}">보호자 문자 보기·복사</button>`:''}${['waiting_parent','waiting_teacher'].includes(r.status)?`<button class="secondary" data-edit="${r.id}">일정 수정</button><button class="danger" data-cancel="${r.id}">신청 취소</button>`:''}</div>${editingId===r.id?editFormHtml(r):''}<details><summary>처리 기록 열기</summary>${formatLog(r.id)}</details></article>`).join(''):`<div class="empty">▤<b>아직 신청 내역이 없습니다.</b>학생 외박 신청 화면에서 신청을 등록해 보세요.<br/><br/><button class="primary" data-go="apply">외박 신청하기</button></div>`}</div></div>`;
+ }
+
+ function teacherShown(){
+   const byStatus=db.requests.filter(r=>filter==='all'||r.status===filter);
+   return L.searchRequests(byStatus,search);
+ }
+ function teacherCardHtml(r){
+   let html=`<article class="req" id="request-${r.id}">${reqHtml(r)}`;
+   if(r.parentVerifiedAt)html+=`<div class="tiny" style="color:#8af2c1;margin-bottom:12px">✓ 교사가 보호자 문자 수신을 확인함 · ${h(new Date(r.parentVerifiedAt).toLocaleString('ko-KR'))}</div>`;
+   if(r.teacherNote)html+=`<p class="notice">교사 메모: ${h(r.teacherNote)}</p>`;
+   if(r.status==='waiting_parent')html+=`<div class="notice warning"><strong>문자 수신 확인 필요</strong><br/>외부 문자 앱에서 해당 학생의 보호자가 직접 보낸 문자를 확인한 후 아래 항목을 체크하세요.</div><label class="toggle" style="margin:12px 0"><input type="checkbox" id="received-${r.id}"/>보호자가 직접 보낸 문자를 실제로 수신했고 외박 일시가 신청서와 일치함을 확인했습니다.</label><div class="req-actions"><button class="primary" data-verify="${r.id}">보호자 문자 수신 확인</button><button class="danger" data-reject="${r.id}">반려</button></div>`;
+   if(r.status==='waiting_teacher')html+=`<div class="notice" style="margin-bottom:13px"><strong>보호자 문자 확인 완료</strong><br/>교사가 신청 내용을 검토하고 최종 처리할 수 있습니다.</div><div class="req-actions"><button class="primary" data-approve="${r.id}">최종 승인</button><button class="danger" data-reject="${r.id}">반려</button></div>`;
+   return html+`<details><summary>처리 기록</summary>${formatLog(r.id)}</details></article>`;
+ }
+ function teacherCardsHtml(){
+   const show=teacherShown();
+   if(show.length)return show.map(teacherCardHtml).join('');
+   const narrowed=search.trim()||filter!=='all';
+   return `<div class="empty">✓<b>해당 조건의 신청이 없습니다.</b>${narrowed?'검색어나 상태 조건을 바꿔 보세요.':'학생 화면에서 신청을 만들어 보세요.'}</div>`;
+ }
+ function teacherResultText(){
+   const narrowed=search.trim()||filter!=='all';
+   return narrowed?`조건에 맞는 신청 ${teacherShown().length}건 / 전체 ${db.requests.length}건`:`전체 ${db.requests.length}건`;
+ }
+ function renderTeacher(){
+   const waiting=db.requests.filter(r=>r.status==='waiting_parent'||r.status==='waiting_teacher');
+   const total=db.requests.length;
+   const counts={waiting_parent:db.requests.filter(r=>r.status==='waiting_parent').length,waiting_teacher:db.requests.filter(r=>r.status==='waiting_teacher').length,approved:db.requests.filter(r=>r.status==='approved').length};
+   screen.innerHTML=intro('03 / TEACHER DASHBOARD','외박 승인 관리','보호자가 보낸 문자를 확인하고 신청 내역을 검토해 승인하거나 반려하세요.')
+     +`<div class="approval-steps"><div><span class="approval-num">01</span><strong>보호자 문자 확인</strong><small>담임교사가 받은 문자와 신청 일시 대조</small></div><div><span class="approval-num">02</span><strong>최종 승인 또는 반려</strong><small>확인한 신청을 선택하여 처리</small></div></div>`
+     +`<div class="grid3 section-space"><div class="stat"><div class="stat-label">전체 신청</div><div class="stat-value">${total}</div></div><div class="stat"><div class="stat-label">보호자 문자 확인 대기</div><div class="stat-value">${counts.waiting_parent}</div></div><div class="stat"><div class="stat-label">승인 완료</div><div class="stat-value">${counts.approved}</div></div></div>`
+     +`<section class="panel section-space"><div class="row between" style="margin-bottom:19px;flex-wrap:wrap"><div><h2 class="section-heading">외박 신청 목록</h2><p class="section-desc" style="margin-bottom:0">${waiting.length}건의 신청이 확인 또는 승인을 기다리고 있습니다.</p></div>`
+     +`<div class="filters"><input id="teacher-search" type="search" placeholder="학번 또는 이름 검색" aria-label="학번 또는 이름으로 신청 학생 검색" value="${h(search)}" autocomplete="off"/><select id="status-filter" aria-label="상태별 검색"><option value="all">전체 상태</option>${Object.entries(L.STATUS).map(([key,value])=>`<option value="${key}" ${filter===key?'selected':''}>${h(value)}</option>`).join('')}</select><button class="secondary" id="export">CSV 내려받기</button></div></div>`
+     +`<p class="tiny" id="teacher-result" style="margin:0 0 12px">${h(teacherResultText())}</p>`
+     +`<div class="cards" id="teacher-cards">${teacherCardsHtml()}</div></section>`;
+ }
+ /* ③ 교사용 외박 달력 */
+ function ymd(y,m,d){return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;}
+ function renderCalendar(){
+   const firstWeekday=new Date(calYear,calMonth,1).getDay();      // 1일의 요일 (0=일요일)
+   const lastDate=new Date(calYear,calMonth+1,0).getDate();       // 그 달의 마지막 날짜
+   const todayText=ymd(today.getFullYear(),today.getMonth(),today.getDate());
+   let cells='';
+   for(let i=0;i<firstWeekday;i++)cells+='<div></div>';
+   for(let d=1;d<=lastDate;d++){
+     const text=ymd(calYear,calMonth,d);
+     const c=L.dayCount(db,text);
+     const cls=['cal-day',text===todayText?'today':'',text===calDay?'selected':''].join(' ').trim();
+     const aria=`${calMonth+1}월 ${d}일, 승인 ${c.approved}명, 대기 ${c.pending}명`;
+     cells+=`<button type="button" class="${cls}" data-day="${text}" aria-label="${aria}"><span class="cal-num">${d}</span>`
+       +(c.approved?`<span class="cal-badge ok"><span class="cal-word">승인 </span>${c.approved}<span class="cal-word">명</span></span>`:'')
+       +(c.pending?`<span class="cal-badge wait"><span class="cal-word">대기 </span>${c.pending}<span class="cal-word">명</span></span>`:'')
+       +`</button>`;
+   }
+   let detail='<div class="empty">▦<b>날짜를 선택해 주세요.</b>그 날 외박하는 학생 목록이 여기에 표시됩니다.</div>';
+   if(calDay){
+     const list=L.requestsOnDate(db,calDay);
+     const c=L.dayCount(db,calDay);
+     const [,mm,dd]=calDay.split('-').map(Number);
+     detail=`<h2 class="section-heading">${mm}월 ${dd}일 외박 학생</h2><p class="section-desc">승인 ${c.approved}명 · 대기 ${c.pending}명 (취소·반려된 신청은 제외)</p>`
+       +(list.length?`<div class="cards">${list.map(r=>`<article class="req">${reqHtml(r)}</article>`).join('')}</div>`:'<div class="empty">✓<b>이 날짜에는 외박 신청이 없습니다.</b></div>');
+   }
+   screen.innerHTML=intro('04 / TEACHER CALENDAR','외박 일정 달력','날짜별로 외박하는 학생 수를 확인하고, 날짜를 눌러 학생 목록을 볼 수 있어요.')
+     +`<section class="panel"><div class="cal-head"><div class="cal-title">${calYear}년 ${calMonth+1}월</div><div class="filters" style="margin-bottom:0"><button class="secondary" data-cal="prev" aria-label="이전 달">← 이전 달</button><button class="secondary" data-cal="today">이번 달</button><button class="secondary" data-cal="next" aria-label="다음 달">다음 달 →</button></div></div>`
+     +`<div class="cal-grid">${['일','월','화','수','목','금','토'].map(w=>`<div class="cal-week">${w}</div>`).join('')}${cells}</div>`
+     +`<div class="cal-legend"><span><span class="cal-badge ok">승인</span> 최종 승인된 학생 수</span><span><span class="cal-badge wait">대기</span> 문자 확인 또는 승인을 기다리는 학생 수</span></div></section>`
+     +`<section class="panel section-space">${detail}</section>`;
+ }
+ function renderHelp(){screen.innerHTML=intro('05 / GUIDE','사용 안내','대회 시연용 웹사이트를 순서대로 사용해 보세요.')+`<div class="grid2"><section class="panel"><h2 class="section-heading">시연 순서</h2><p class="section-desc">학생 → 보호자 문자 → 교사 승인</p><div class="steps">${[['학생 외박 신청','학번과 이름, 외박 시작·종료 일시와 사유를 직접 입력합니다.'],['문자 문구 복사','내 신청 내역에서 보호자가 담임에게 보낼 문자 문구를 복사합니다.'],['교사 확인 시연','교사 승인 화면으로 이동해 실제 문자 수신을 가정한 데모 확인을 진행합니다.'],['신청 최종 승인','문자 확인 상태의 신청에 대해서만 최종 승인할 수 있습니다.'],['신청 결과 확인','학생 내 신청 내역에서 승인 상태가 변경되었는지 확인합니다.']].map(([title,desc],i)=>`<div class="step"><div class="step-number">${i+1}</div><div><strong>${title}</strong><div class="tiny">${desc}</div></div></div>`).join('')}</div></section><section class="panel"><h2 class="section-heading">중요한 제한 사항</h2><p class="section-desc">본 시제품은 실제 운영 시스템과 구별해야 합니다.</p><div class="notice warning"><strong>운영 전 준비 사항</strong><br/>현재 버전에는 실제 사용자 인증과 서버 권한 검사가 없습니다. 학교에서 정식으로 운영하려면 이를 먼저 구축해야 합니다.</div><div class="notice" style="margin-top:14px"><strong>데이터 저장 및 이동</strong><br/>현재 브라우저에서는 자동 저장되지만, 다른 기기와 실시간 동기화되지는 않습니다. 상단의 백업 다운로드·복원 버튼으로 데이터를 수동 이전할 수 있습니다. 실시간 공유에는 공용 서버와 계정 인증이 필요합니다.</div><div class="notice" style="margin-top:14px"><strong>문자 자동 발송 및 인증 없음</strong><br/>보호자 본인의 문자 전송과 교사의 실제 확인을 대체하지 않습니다.</div><p class="tiny" style="margin-top:14px">실제 서비스로 확장하려면 Python 서버, 데이터베이스, 보호자 본인 확인, 학교 권한 검증 및 공식 운영 승인이 추가로 필요합니다.</p></section></div>`;}
+ function render(){renderNav();if(current==='apply')renderApply();else if(current==='history')renderHistory();else if(current==='teacher')renderTeacher();else if(current==='calendar')renderCalendar();else renderHelp();}
+ nav.addEventListener('click',e=>{const b=e.target.closest('button[data-page]');if(b){current=b.dataset.page;editingId=null;window.scrollTo(0,0);render();}});
+ screen.addEventListener('input',e=>{if(e.target.id!=='teacher-search')return;
+   search=e.target.value;
+   const cards=document.getElementById('teacher-cards');if(cards)cards.innerHTML=teacherCardsHtml();
+   const result=document.getElementById('teacher-result');if(result)result.textContent=teacherResultText();
+ });
+ screen.addEventListener('input',e=>{if(e.target.id==='student-number'||e.target.id==='student-name'){
+   const no=document.getElementById('student-number')?.value.trim()||'';
+   const name=document.getElementById('student-name')?.value.trim()||'';
+   const preview=document.getElementById('student-preview');
+   if(preview)preview.textContent=no||name?`${no} ${name}`.trim():'학번과 이름을 입력해 주세요';
+   const count=document.getElementById('student-request-count');
+   if(count)count.textContent=`현재 신청: ${db.requests.filter(r=>r.studentNumber===no).length}건`;
+ }});
+ screen.addEventListener('submit',e=>{if(!e.target.dataset.editForm)return;e.preventDefault();
+   const form=e.target;const id=form.dataset.editForm;
+   const start=form.querySelector('#edit-start').value,end=form.querySelector('#edit-end').value,reason=form.querySelector('#edit-reason').value;
+   protect(()=>{
+     const result=L.updateRequest(db,id,selectedStudentNumber,start,end,reason);
+     editingId=null;
+     if(result.verificationReset)notify('일정이 수정되었습니다. 보호자 문자 확인이 초기화되어 바뀐 일정으로 다시 확인받아야 합니다.');
+     else if(result.scheduleChanged)notify('일정이 수정되었습니다. 바뀐 일정의 문자 문구를 보호자에게 다시 전달하세요.');
+     else notify('외박 사유가 수정되었습니다.');
+   });
+ });
+ screen.addEventListener('submit',e=>{if(e.target.id!=='application')return;e.preventDefault();const form=e.target;const number=form.querySelector('#student-number').value.trim(),name=form.querySelector('#student-name').value.trim();const start=form.querySelector('#start').value,end=form.querySelector('#end').value,reason=form.querySelector('#reason').value;protect(()=>{const id=L.createRequest(db,number,name,start,end,reason);selectedStudentNumber=number;current='history';notify(`외박 신청 #${id}이 저장됐습니다. 보호자에게 문자 문구를 전달하세요.`);});});
+ screen.addEventListener('change',e=>{if(e.target.id==='history-student'){selectedStudentNumber=e.target.value;editingId=null;render();}if(e.target.id==='status-filter'){filter=e.target.value;render();}});
+ screen.addEventListener('click',e=>{const el=e.target.closest('button');if(!el)return;
+ if(el.dataset.go){current=el.dataset.go;editingId=null;render();return;}
+ if(el.dataset.edit){editingId=Number(el.dataset.edit);render();document.getElementById('edit-start')?.focus();return;}
+ if(el.dataset.editCancel){editingId=null;render();return;}
+ if(el.dataset.cal){
+   if(el.dataset.cal==='today'){calYear=today.getFullYear();calMonth=today.getMonth();}
+   else{const moved=new Date(calYear,calMonth+(el.dataset.cal==='next'?1:-1),1);calYear=moved.getFullYear();calMonth=moved.getMonth();}
+   calDay=null;render();return;}
+ if(el.dataset.day){calDay=el.dataset.day;render();return;}
+ if(el.dataset.copy){const r=L.getRequest(db,el.dataset.copy);const stu={studentName:r.studentName,studentNumber:r.studentNumber};const msg=L.guardianMessage(stu,r);const modal=window.confirm(`보호자가 담임교사에게 직접 보낼 문자 예시:\n\n${msg}\n\n문구를 복사하시겠습니까?`);if(modal)textCopy(msg);return;}
+ if(el.dataset.cancel){if(window.confirm('이 외박 신청을 취소하시겠습니까?'))protect(()=>{L.cancel(db,el.dataset.cancel,selectedStudentNumber);notify('신청이 취소되었습니다.');});return;}
+ if(el.dataset.verify){const checked=document.getElementById('received-'+el.dataset.verify)?.checked===true;protect(()=>{L.verifyParentSms(db,el.dataset.verify,'teacher',checked);notify('보호자 문자 확인 상태가 기록됐습니다.');});return;}
+ if(el.dataset.approve){if(window.confirm('보호자 문자 확인이 끝난 신청을 최종 승인하시겠습니까?'))protect(()=>{L.decide(db,el.dataset.approve,'teacher','approved');notify('외박 신청이 승인되었습니다.');});return;}
+ if(el.dataset.reject){const note=window.prompt('반려 사유를 입력해 주세요 (취소 시 처리하지 않음).','');if(note!==null)protect(()=>{L.decide(db,el.dataset.reject,'teacher','rejected',note);notify('신청이 반려되었습니다.');});return;}
+ if(el.id==='export'){exportCsv();return;}
+ });
+  // 데이터 백업은 localStorage가 사용 불가하거나 다른 기기로 옮길 때를 위한 수동 대안입니다.
+  function downloadBackup(){
+    const payload={format:'staypass-backup-v1',exportedAt:new Date().toISOString(),state:db};
+    const data=JSON.stringify(payload,null,2);
+    const url=URL.createObjectURL(new Blob([data],{type:'application/json;charset=utf-8'}));
+    const a=document.createElement('a');
+    a.href=url;a.download='StayPass_백업_'+new Date().toISOString().slice(0,10)+'.json';
+    document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    notify('백업 JSON 파일을 내려받았습니다. 파일을 안전하게 보관하세요.');
+  }
+  function validateBackup(payload){
+    const x=payload?.format==='staypass-backup-v1'?payload.state:payload;
+    const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
+    if(!object(x)||x.version!==2||!object(x.students)||!Array.isArray(x.requests)||!Array.isArray(x.logs)||!Number.isSafeInteger(x.nextId)||x.nextId<1){
+      throw Error('StayPass 백업 파일 형식이 아닙니다.');
+    }
+    if(Object.keys(x.students).length>2000||x.requests.length>5000||x.logs.length>20000) throw Error('백업 데이터가 허용 범위를 초과했습니다.');
+    for(const [num,student] of Object.entries(x.students)){
+      if(!object(student)) throw Error('학생 데이터 형식이 올바르지 않습니다.');
+      const result=L.validateStudent(student.studentNumber,student.studentName);
+      if(num!==result.studentNumber) throw Error('학생 번호와 데이터가 일치하지 않습니다.');
+    }
+    const used=new Set();let largest=0;
+    for(const r of x.requests){
+      if(!object(r)||!Number.isSafeInteger(r.id)||r.id<1||used.has(r.id)) throw Error('신청번호가 올바르지 않습니다.');
+      used.add(r.id);largest=Math.max(largest,r.id);
+      const student=L.validateStudent(r.studentNumber,r.studentName);
+      if(x.students[student.studentNumber]?.studentName!==student.studentName) throw Error('신청서 학생 정보가 일치하지 않습니다.');
+      L.validateLeave(r.start,r.end,r.reason);
+      if(!Object.prototype.hasOwnProperty.call(L.STATUS,r.status)) throw Error('신청 상태 값이 올바르지 않습니다.');
+    }
+    if(x.nextId<=largest) throw Error('신청번호 생성 정보가 올바르지 않습니다.');
+    for(const log of x.logs){
+      if(!object(log)||!used.has(log.requestId)||typeof log.actor!=='string'||typeof log.action!=='string'||typeof log.detail!=='string'||typeof log.at!=='string') throw Error('처리 기록 정보가 올바르지 않습니다.');
+    }
+    return x;
+  }
+  document.getElementById('backup-export').addEventListener('click',downloadBackup);
+  document.getElementById('backup-import').addEventListener('click',()=>document.getElementById('backup-file').click());
+  document.getElementById('backup-file').addEventListener('change',async e=>{
+    const file=e.target.files?.[0];if(!file)return;
+    try{
+      if(file.size>2*1024*1024) throw Error('백업 파일은 2MB 이하만 불러올 수 있습니다.');
+      const imported=validateBackup(JSON.parse(await file.text()));
+      if(!window.confirm('현재 브라우저의 신청 내역을 백업 파일로 교체할까요? 기존 데이터를 복구하려면 먼저 백업하세요.'))return;
+      db=imported;selectedStudentNumber=Object.keys(db.students)[0]||'';
+      current='history';editingId=null;filter='all';search='';calDay=null;
+      const stored=save();render();
+      if(stored)notify('백업 파일에서 신청 내역을 복원했습니다.');
+      else notify('백업 내용을 불러왔지만 브라우저 저장이 제한됩니다. 다시 백업해 두세요.',true);
+    }catch(err){notify('복원 실패: '+(err.message||'백업 파일을 확인하세요.'),true);}
+    finally{e.target.value='';}
+  });
+ document.getElementById('reset').addEventListener('click',()=>{if(window.confirm('이 브라우저의 모든 시연 신청 내역을 삭제할까요?')){db=L.makeBlankState();save();current='apply';selectedStudentNumber='';filter='all';editingId=null;search='';calDay=null;render();notify('시연 데이터가 초기화되었습니다.');}});
+ function csvValue(v){let s=String(v??'');if(/^[\s]*[=+\-@]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';}
+ function exportCsv(){const head=['신청번호','학생 이름','학번','시작','종료','사유','상태','문자 확인'];const data=db.requests.map(r=>[r.id,r.studentName||'',r.studentNumber||'',L.formatDate(r.start),L.formatDate(r.end),r.reason,L.STATUS[r.status],r.parentVerifiedAt?'확인':'미확인']);const csv='\ufeff'+[head,...data].map(row=>row.map(csvValue).join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));const a=document.createElement('a');a.href=url;a.download='StayPass_가상외박신청.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);notify('가상 데이터 CSV가 저장되었습니다.');}
+ render();
+})();
+
+</script></body></html>
